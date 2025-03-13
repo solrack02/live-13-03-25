@@ -55,91 +55,20 @@ stls.height({ pass: { arrayValue: [jsvals.varReader({pass: {
         }})
         }})] }})],
 
-          screenElements:[
-        (...args:any) => <Elements.Pressable3 pass={{
-          elementProperties: [{}],
+          screenElements:[() => {
+                  const textStyle = {
+                    fontSize: 20,
+                    color: '#fff2',
+                    textAlign:'center',
+                    maxWidth: 200,
+                    // maxWidth: '200px'<= #ATTENTION: Native ERROR! No string!
+                  };
 
-          styles: [
-              {
-                backgroundColor: 'blue',
-                borderRadius: 20,
-                paddingVertical: 5,
-                paddingHorizontal: 20,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }
-              ],
-
-          childrenItems: [()=><></>],
-
-          pressableFunctions: [
-        (...args) => {
-          // ---------- get Function from A_Project Scope
-          return tools.goTo("sc1");
-        }
-        ],
-
-          args,
-        }}/>, (...args:any) => <Elements.Pressable3 pass={{
-          elementProperties: [{}],
-
-          styles: [
-              {
-                backgroundColor: 'blue',
-                borderRadius: 20,
-                paddingVertical: 5,
-                paddingHorizontal: 20,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }
-              ],
-
-          childrenItems: [(...args:any) => <Elements.Text pass={{
-          arrProps: [
-            {}
-          ],
-
-          arrStyles: [
-            { color: 'black', fontSize: 12, }
-          ],
-
-          children: [
-            jsvals.j8({pass: {
-          propertieValues: "where"
-        }})
-          ],
-
-          args,
-
-        }}/>],
-
-          pressableFunctions: [async (...args) =>
-        functions.firebase.where({ args, pass:{
-            fbInit: [jsvals.varReader({pass: {
-          path: jsvals.j8({pass: {
-          propertieValues: "all.fbInit"
-        }})
-        }})],
-            arrRefStrings: [jsvals.j8({pass: {
-          propertieValues: "users"
-        }})],
-            arrWhere: [(...args) =>
-        functions.firebase.whereConds({ args, pass:{
-          arrStrings: [
-        jsvals.j8({pass: {
-          propertieValues: "userEmail"
-        }}), 
-        jsvals.j8({pass: {
-          propertieValues: "=="
-        }}), jsvals.j8({pass: {
-          propertieValues: "sdd"
-        }})],
-        }})],
-            arrFuncs: [() => {}],
-        }})],
-
-          args,
-        }}/>],
+                  return (
+                    <RN.Text style={textStyle}>
+                      {'Adicione Elementos nessa tela!'}
+                    </RN.Text>);
+                }],
 
           startFunctions:[async (...args) =>
         functions.firebase.fireInit({ args, pass:{
